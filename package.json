@@ -1,0 +1,80 @@
+{
+  "name": "ngx-seed",
+  "version": "0.0.0",
+  "scripts": {
+    "build-theme": "./node_modules/grunt-cli/bin/grunt compile-web-ui-styles",
+    "bundle-js": "./node_modules/grunt-cli/bin/grunt bundle-web-ui",
+    "start": "./node_modules/http-server/bin/http-server .",
+    "test": "./node_modules/protractor/bin/webdriver-manager update --gecko false && karma start karma.conf.js --single-run",
+    "test:dev": "./node_modules/protractor/bin/webdriver-manager update --gecko false && karma start karma.conf.js"
+  },
+  "description": "The ngx-seed web application.",
+  "keywords": [
+    "fluid design system",
+    "angular",
+    "material",
+    "material design",
+    "components",
+    "reusable",
+    "covalent",
+    "NiFi Design System"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottyaslan/ngx-seed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scottyaslan/ngx-seed/issues"
+  },
+  "license": "Apache License, Version 2.0",
+  "author": "Scott Aslan",
+  "contributors": [
+    "Scott Aslan <scottyaslan@gmail.com>"
+  ],
+  "dependencies": {
+    "@angular/animations": "4.4.6",
+    "@angular/cdk": "2.0.0-beta.12",
+    "@angular/common": "4.4.6",
+    "@angular/compiler": "4.4.6",
+    "@angular/core": "4.4.6",
+    "@angular/flex-layout": "2.0.0-beta.9",
+    "@angular/forms": "4.4.6",
+    "@angular/http": "4.4.6",
+    "@angular/material": "2.0.0-beta.12",
+    "@angular/platform-browser": "4.4.6",
+    "@angular/platform-browser-dynamic": "4.4.6",
+    "@angular/router": "4.4.6",
+    "@covalent/core": "1.0.0-beta.8-1",
+    "bootstrap": "3.3.7",
+    "detect-libc": "^1.0.3",
+    "fluid-design-system": "git://github.com/scottyaslan/fluid-design-system.git",
+    "font-awesome": "4.7.0",
+    "hammerjs": "2.0.8",
+    "horton-style": "git+https://a362d60416f63223f2c22ba0fdbfadb20ef68f6b:x-oauth-basic@github.com/hortonworks/horton-style.git#dist",
+    "jquery": "3.2.1",
+    "node-gyp": "^3.6.2",
+    "roboto-fontface": "0.7.0",
+    "rxjs": "5.4.3",
+    "systemjs": "0.20.17",
+    "systemjs-plugin-text": "0.0.11",
+    "zone.js": "0.8.7"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-cli": "1.2.0",
+    "grunt-contrib-compress": "1.4.3",
+    "grunt-sass": "2.0.0",
+    "grunt-systemjs-builder": "1.0.0",
+    "http-server": "^0.11.1",
+    "jasmine-core": "2.8.0",
+    "karma": "1.7.1",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-cli": "1.0.1",
+    "karma-coverage": "1.1.1",
+    "karma-jasmine": "1.1.1",
+    "karma-jasmine-html-reporter": "0.2.2",
+    "karma-spec-reporter": "0.0.31",
+    "load-grunt-tasks": "3.5.2",
+    "protractor": "4.0.14"
+  }
+}
