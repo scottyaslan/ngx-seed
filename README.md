@@ -49,8 +49,4 @@ npm start
 The ngx-seed demo application should now be availalbe at: [http://127.0.0.1:8080/](http://127.0.0.1:8080/). The port may differ if there is a conflict on 8080. See the output of the start command for the
 available URLs.
 
-## Release Managment
-
-For developers with permissions releasing a new version of ngx-seed is simple with [grunt bump](https://github.com/vojtajina/grunt-bump)
-
 
