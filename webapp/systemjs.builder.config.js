@@ -29,9 +29,6 @@
             // jquery
             'jquery': 'npm:jquery/dist/jquery.min.js',
 
-            // horton-style
-            'horton-style': 'npm:horton-style/js/bootstrap-hwx.min.js',
-
             // Angular
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
             '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -79,19 +76,6 @@
             'querystring': 'npm:querystring',
             'tslib': 'npm:tslib/tslib.js',
 
-            // Fluid Design System
-            '@fluid-design-system/animations': 'npm:fluid-design-system/platform/core/common/fds.animations.js',
-            '@fluid-design-system/common': 'npm:fluid-design-system/platform/core/common/fds-common.module.js',
-            '@fluid-design-system/core': 'npm:fluid-design-system/platform/core/fluid-design-system.module.js',
-            '@fluid-design-system/dialogs': 'npm:fluid-design-system/platform/core/dialogs/fds-dialogs.module.js',
-            '@fluid-design-system/dialog-component': 'npm:fluid-design-system/platform/core/dialogs/fds-dialog.component.js',
-            '@fluid-design-system/dialog-service': 'npm:fluid-design-system/platform/core/dialogs/services/dialog.service.js',
-            '@fluid-design-system/confirm-dialog-component': 'npm:fluid-design-system/platform/core/dialogs/confirm-dialog/confirm-dialog.component.js',
-            '@fluid-design-system/snackbars': 'npm:fluid-design-system/platform/core/snackbars/fds-snackbars.module.js',
-            '@fluid-design-system/snackbar-component': 'npm:fluid-design-system/platform/core/snackbars/fds-snackbar.component.js',
-            '@fluid-design-system/snackbar-service': 'npm:fluid-design-system/platform/core/snackbars/services/snackbar.service.js',
-            '@fluid-design-system/coaster-component': 'npm:fluid-design-system/platform/core/snackbars/coaster/coaster.component.js',
-
             // App
             'app/app.module.js': 'app.module.js',
             'app/app.routes.js': 'app.routes.js',
@@ -117,14 +101,6 @@
                 defaultExtension: 'js'
             },
             'querystring': {
-                main: './index.js',
-                defaultExtension: 'js'
-            },
-            'moment': {
-                main: './moment.js',
-                defaultExtension: 'js'
-            },
-            'angular2-moment': {
                 main: './index.js',
                 defaultExtension: 'js'
             }

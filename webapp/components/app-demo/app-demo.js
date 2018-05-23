@@ -16,36 +16,17 @@
  */
 
 var ngCore = require('@angular/core');
-var covalentCore = require('@covalent/core');
 var ngRouter = require('@angular/router');
-var ngMaterial = require('@angular/material');
-var fdsAnimations = require('@fluid-design-system/animations');
-var fdsDialogsModule = require('@fluid-design-system/dialogs');
-var fdsSnackBarsModule = require('@fluid-design-system/snackbars');
 var AppService = require('app/services/app.service.js');
-var AppDemoDialog = require('app/components/app-demo/dialogs/demo/app-demo-dialog.js');
 
 /**
  * AppDemo constructor.
  *
- * @param AppSnackBarService    The app snack bar service module.
  * @param AppService            The app service module.
- * @param dialog                The angular material dialog module.
- * @param TdDialogService       The covalent dialog service module.
- * @param TdDataTableService    The covalent data table service module.
  * @constructor
  */
-function AppDemo(AppSnackBarService, AppService, dialog, TdDataTableService, AppDialogService) {
-
+function AppDemo(AppService) {
     this.appService = AppService;
-
-    this.snackBarService = AppSnackBarService;
-
-    this.dialog = dialog;
-
-    this.dialogService = AppDialogService;
-
-    this.dataTableService = TdDataTableService;
 };
 
 AppDemo.prototype = {
@@ -61,17 +42,12 @@ AppDemo.prototype = {
 
 AppDemo.annotations = [
     new ngCore.Component({
-        template: require('./app-demo.html!text'),
-        animations: [fdsAnimations.flyInOutAnimation]
+        template: require('./app-demo.html!text')
     })
 ];
 
 AppDemo.parameters = [
-    fdsSnackBarsModule.FdsSnackBarService,
     AppService,
-    ngMaterial.MatDialog,
-    covalentCore.TdDataTableService,
-    fdsDialogsModule.FdsDialogService
 ];
 
 module.exports = AppDemo;

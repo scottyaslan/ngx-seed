@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-var fdsCore = require('@fluid-design-system/core');
 var App = require('app/app.js');
 var AppDemo = require('app/components/app-demo/app-demo.js');
 var AppRoutes = require('app/app.routes.js');

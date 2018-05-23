@@ -16,8 +16,6 @@
  */
 
 var covalentCore = require('@covalent/core');
-var fdsDialogsModule = require('@fluid-design-system/dialogs');
-var fdsSnackBarsModule = require('@fluid-design-system/snackbars');
 
 /**
  * AppService constructor.
@@ -27,14 +25,12 @@ var fdsSnackBarsModule = require('@fluid-design-system/snackbars');
  * @param appSnackBarService    The app snack bar service module.
  * @constructor
  */
-function AppService(tdDataTableService, appDialogService, appSnackBarService) {
+function AppService(tdDataTableService) {
     // Services
-    this.dialogService = appDialogService;
-    this.snackBarService = appSnackBarService;
     this.dataTableService = tdDataTableService;
 
     // General
-    this.title = "App Demo";
+    this.title = "Hello World";
     this.inProgress = true;
     this.perspective = '';
 };
@@ -44,9 +40,7 @@ AppService.prototype = {
 };
 
 AppService.parameters = [
-    covalentCore.TdDataTableService,
-    fdsDialogsModule.FdsDialogService,
-    fdsSnackBarsModule.FdsSnackBarService
+    covalentCore.TdDataTableService
 ];
 
 module.exports = AppService;

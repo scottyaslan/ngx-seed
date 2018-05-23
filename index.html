@@ -17,28 +17,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>App Demo</title>
+    <title>ngx-seed</title>
     <base href='/'>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <link rel="stylesheet" href="node_modules/@covalent/core/common/platform.css">
-    <link rel="stylesheet" href='node_modules/fluid-design-system/platform/core/common/styles/css/fluid-design-system.min.css'/>
     <link rel="stylesheet" href='webapp/css/app-demo.min.css'/>
     <link rel='stylesheet' href='node_modules/font-awesome/css/font-awesome.css'/>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/horton-style/css/bootstrap-hwx.min.css">
 </head>
 <body>
 <app></app>
 </body>
 <!-- For developing with minified sources... -->
-<!-- <script src="webapp/app.bundle.min.js"></script> -->
+<script src="webapp/app.bundle.min.js"></script>
 
-<!-- For developing with unminified sources... -->
-<script src="node_modules/systemjs/dist/system.src.js"></script>
+<!-- For developing with unminified sources...be sure to comment out line #33 and uncomment lines 36-40 -->
+<!-- <script src="node_modules/systemjs/dist/system.src.js"></script>
 <script src="webapp/systemjs.spec.config.js?"></script>
 <script>
   System.import('webapp/app-bootstrap.js').catch(function(err) {console.error(err);});
-</script>
+</script> -->
 </html>

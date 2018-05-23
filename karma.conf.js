@@ -76,8 +76,6 @@ module.exports = function (config) {
             {pattern: 'node_modules/@covalent/**/*.css', included: false, watched: false},
             {pattern: 'node_modules/@covalent/**/*.js', included: false, watched: false},
             {pattern: 'node_modules/@covalent/**/*.js.map', included: false, watched: false},
-            {pattern: 'node_modules/fluid-design-system/**/*.js', included: false, watched: false},
-            {pattern: 'node_modules/fluid-design-system/**/*.html', included: false, watched: false},
             {pattern: 'node_modules/jquery/**/*.js', included: false, watched: false},
             {pattern: 'node_modules/systemjs-plugin-text/text.js', included: false, watched: false},
 

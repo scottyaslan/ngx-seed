@@ -17,7 +17,6 @@
 
 var ngCore = require('@angular/core');
 var AppService = require('app/services/app.service.js');
-var fdsAnimations = require('@fluid-design-system/animations');
 
 /**
  * App constructor.
@@ -47,8 +46,7 @@ App.annotations = [
         template: require('./app.html!text'),
         queries: {
             sidenav: new ngCore.ViewChild('sidenav')
-        },
-        animations: [fdsAnimations.flyInOutAnimation]
+        }
     })
 ];
 

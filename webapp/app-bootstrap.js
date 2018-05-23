@@ -19,7 +19,6 @@ require('core-js');
 require('zone.js');
 require('hammerjs');
 var $ = require('jquery');
-require('horton-style');
 var AppModule = require('app/app.module.js');
 var ngPlatformBrowserDynamic = require('@angular/platform-browser-dynamic');
 var ngCore = require('@angular/core');

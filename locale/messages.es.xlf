@@ -18,10 +18,10 @@
   <file source-language="es" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="app-title" datatype="html">
-         <source>App Demo</source>
-         <target state="new">App manifestación</target>
-        <note priority="1" from="description">The App Demo Title.</note>
-        <note priority="1" from="meaning">The App Demo Title</note>
+         <source>Hello World</source>
+         <target state="new">Hola Mundo</target>
+        <note priority="1" from="description">The Hello World Application Title.</note>
+        <note priority="1" from="meaning">The Hello World Demo Title.</note>
        </trans-unit>
     </body>
   </file>
