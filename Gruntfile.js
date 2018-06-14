@@ -27,7 +27,7 @@ module.exports = function (grunt) {
             },
             minifyWebUi: {
                 files: [{
-                    './webapp/css/app-demo.min.css': ['./webapp/theming/app-demo.scss']
+                    './app/css/app-demo.min.css': ['./app/theming/app-demo.scss']
                 }]
             }
         },
@@ -42,11 +42,11 @@ module.exports = function (grunt) {
             },
             bundleWebUi: {
                 options: {
-                    configFile: "./webapp/systemjs.builder.config.js"
+                    configFile: "./app/systemjs.builder.config.js"
                 },
                 files: [{
-                    "src": "./webapp/app-bootstrap.js",
-                    "dest": "./webapp/app.bundle.min.js"
+                    "src": "./app/app-bootstrap.js",
+                    "dest": "./app/app.bundle.min.js"
                 }]
             }
         },
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
             webUi: {
                 files: [{
                     expand: true,
-                    src: ['./webapp/app.bundle.min.js'],
+                    src: ['./app/app.bundle.min.js'],
                     dest: './',
                     ext: '.bundle.min.js.gz'
                 }]
@@ -65,7 +65,7 @@ module.exports = function (grunt) {
             webUiStyles: {
                 files: [{
                     expand: true,
-                    src: ['./webapp/css/app-demo.min.css'],
+                    src: ['./app/css/app-demo.min.css'],
                     dest: './',
                     ext: '.min.css.gz'
                 }]

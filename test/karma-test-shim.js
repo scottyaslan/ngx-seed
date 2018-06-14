@@ -70,14 +70,14 @@ System.config({
     }
 });
 
-System.import('webapp/systemjs.spec.config.js')
+System.import('app/systemjs.spec.config.js')
     .then(importSystemJsExtras)
     .then(initTestBed)
     .then(initTesting);
 
 /** Optional SystemJS configuration extras. Keep going w/o it */
 function importSystemJsExtras() {
-    return System.import('webapp/systemjs.config.extras.js')
+    return System.import('app/systemjs.config.extras.js')
         .catch(function (reason) {
             console.log(
                 'Warning: System.import could not load the optional "systemjs.config.extras.js". Did you omit it by accident? Continuing without it.'

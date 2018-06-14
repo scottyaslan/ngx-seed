@@ -17,7 +17,7 @@
 
 (function (global) {
     System.config({
-        baseURL: "./webapp/",
+        baseURL: "./app/",
         paths: {
             // paths serve as alias
             'npm:': './node_modules/'
@@ -107,15 +107,15 @@
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
-            'webapp/': {
+            'app/': {
                 defaultExtension: 'js',
                 meta: {
                     './*.js': {
-                        loader: 'webapp/systemjs-angular-loader.js'
+                        loader: 'app/systemjs-angular-loader.js'
                     }
                 }
             },
-            'webapp/systemjs-angular-loader.js': {
+            'app/systemjs-angular-loader.js': {
                 loader: false
             },
             'rxjs': {

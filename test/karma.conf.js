@@ -17,7 +17,7 @@
 
 module.exports = function (config) {
 
-    var appBase = 'webapp/';       // app JS and map files
+    var appBase = 'app/';       // app JS and map files
 
     config.set({
         basePath: './',
@@ -84,14 +84,14 @@ module.exports = function (config) {
 
             // Include the styles
             {
-                pattern: 'webapp/css/*.css',
+                pattern: 'app/css/*.css',
                 included: true,
                 watched: true
             },
 
             // Include the templates
             {
-                pattern: 'webapp/**/*.html',
+                pattern: 'app/**/*.html',
                 included: true,
                 watched: true,
                 served: true
@@ -111,12 +111,12 @@ module.exports = function (config) {
         // Proxied base paths for loading assets
         proxies: {
             // required for modules fetched by SystemJS
-            '/base/systemjs-angular-loader.js': '/base/webapp/systemjs-angular-loader.js'
+            '/base/systemjs-angular-loader.js': '/base/app/systemjs-angular-loader.js'
         },
 
         exclude: [],
         preprocessors: {
-            'webapp/**/!(*spec|*mock|*stub|*config|*extras|).js': 'coverage'
+            'app/**/!(*spec|*mock|*stub|*config|*extras|).js': 'coverage'
         },
         reporters: ['kjhtml', 'spec', 'coverage'],
         coverageReporter: {

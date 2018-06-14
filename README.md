@@ -2,47 +2,36 @@
 
 The ngx-seed is an seed project for Angular applications written in ES5. This project comes complete with SASS compliation and minification, SystemJS build tools for bundling the application JS into a single file, Grunt tasks for minification and compression of the final application JS bundles, npm for dependency management and build scripts, themeing of preinstalled design systems (Angular Material, Teradata Covalent), Internationalization (i18n), and JS unit testing and reporting with Karma, Jasmine, and Istanbul.
 
-## Running ngx-seed demo app locally
-
-Developers can easily run a local instance of ngx-seed demo app using **npm**.
-
-First install or update your local project's **npm** tools:
+#### Building
+Developers can perform code changes and easily build this project using **npm** from the root nifi-fds directory via:
 
 ```bash
-npm install
+npm run clean:install
 ```
 
-## Building ngx-seed
-
-Developers can easily build the ngx-seed SASS theme into a single CSS file using **npm**:
+or to build without running unit tests run:
 
 ```bash
-npm run build-theme
+npm run clean:install:skipTests
 ```
 
-Developers can also bundle the ngx-seed JS into a single gzip compressed file using **npm**:
+Developers can speed up development time by skipping the re-installation of all node_modules:
 
 ```bash
-npm run bundle-js
+npm run dev:install
 ```
 
-## Testing ngx-seed
-
-Developers can run ngx-seed JS unit tests using **npm**.
+or to skip re-installation of node_modules as well as building without running unit tests:
 
 ```bash
-npm test
+npm run dev:install:skipTests
 ```
 
-Or, during development:
+#### Running locally
+Once built you can start the application from the target directory via:
 
 ```bash
-npm run test:dev
-```
-
-Next start the http server:
-
-```bash
+cd target
 npm start
 ```
 
