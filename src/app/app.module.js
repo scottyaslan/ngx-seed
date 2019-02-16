@@ -27,6 +27,7 @@ var App = require('app/app.js');
 var AppDemo = require('app/components/app-demo/app-demo.js');
 var AppDemoDialog = require('app/components/app-demo/dialogs/demo/app-demo-dialog.js');
 var AppService = require('app/services/app.service.js');
+var SearchBox = require('app/components/search-box/search-box.js');
 
 function AppModule() {
 };
@@ -88,7 +89,8 @@ AppModule.annotations = [
         declarations: [
             App,
             AppDemo,
-            AppDemoDialog
+            AppDemoDialog,
+            SearchBox
         ],
         entryComponents: [
             AppDemoDialog

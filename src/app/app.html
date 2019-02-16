@@ -20,9 +20,10 @@ limitations under the License.
         <router-outlet name="sidenav"></router-outlet>
     </mat-sidenav>
     <div id="app-container">
-        <mat-toolbar id="app-toolbar">
-            <div fxFlex="1 1 auto" class="pad-left-xl">
-                <span i18n="@@introductionHeader">{{appService.title}}</span>
+        <mat-toolbar id="app-toolbar" color="primary">
+            <div fxFlex="1 1 auto" class="pad-left-xl pad-right-xl" fxLayoutAlign="space-between">
+                <div i18n="@@introductionHeader">{{appService.title}}</div>
+                <search-box text="RobRello"></search-box>
             </div>
         </mat-toolbar>
         <div id="app-perspectives-container">

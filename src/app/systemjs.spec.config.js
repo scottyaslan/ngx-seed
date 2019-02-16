@@ -102,7 +102,9 @@
             'app/app.js': 'app/app.js',
             'app/services/app.service.js': 'app/services/app.service.js',
             'app/components/app-demo/app-demo.js': 'app/components/app-demo/app-demo.js',
-            'app/components/app-demo/dialogs/demo/app-demo-dialog.js': 'app/components/app-demo/dialogs/demo/app-demo-dialog.js'
+            'app/components/app-demo/dialogs/demo/app-demo-dialog.js': 'app/components/app-demo/dialogs/demo/app-demo-dialog.js',
+            'app/components/search-box/search-box.js': 'app/components/search-box/search-box.js'
+
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {

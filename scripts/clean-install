@@ -21,7 +21,7 @@ mkdir target
 cp -R ./src/app/ ./target/app
 cp -R ./src/locale/ ./target/locale
 cp package.json ./target/package.json
-cp package-lock.json ./target/package-lock.json
+# cp package-lock.json ./target/package-lock.json
 cp README.md ./target/README.md
 cp LICENSE ./target/LICENSE
 cp ./src/app/index.html ./target/index.html

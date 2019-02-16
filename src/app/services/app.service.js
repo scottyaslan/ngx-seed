@@ -30,7 +30,7 @@ function AppService(tdDataTableService) {
     this.dataTableService = tdDataTableService;
 
     // General
-    this.title = "Hello World";
+    this.title = "GitHub Info";
     this.inProgress = true;
     this.perspective = '';
 };
