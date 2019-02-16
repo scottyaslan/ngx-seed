@@ -8,6 +8,14 @@ SearchBox.prototype = {
     constructor: SearchBox,
     ngOnInit: function() {
         console.log('init SearchBox: ' + this.text)
+    },
+    onButtonClick: function() {
+        console.log('TODO: searching for ' + this.text);
+    },
+    onKeyPress: function(event) {
+        if (event.key === 'Enter') {
+            this.onButtonClick();
+        }
     }
 };
 

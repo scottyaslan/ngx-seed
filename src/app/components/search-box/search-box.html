@@ -1,3 +1,8 @@
-<div>
-    <input type="text" value="{{text}}">
+<div fxLayout="row" fxLayoutAlign="flex-start center">
+    <mat-form-field>
+        <input matInput placeholder="GitHub repository name" type="search" [(ngModel)]="text" (keypress)="onKeyPress($event)">
+    </mat-form-field>
+    <button mat-icon-button (click)="onButtonClick()">
+        <mat-icon>search</mat-icon>
+    </button>
 </div>
