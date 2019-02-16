@@ -18,15 +18,28 @@
 var ngCore = require('@angular/core');
 var ngRouter = require('@angular/router');
 var AppService = require('app/services/app.service.js');
-
+var SearchService = require('app/services/search.service.js');
 /**
  * AppDemo constructor.
  *
  * @param AppService            The app service module.
  * @constructor
  */
-function AppDemo(AppService) {
+function AppDemo(AppService, SearchService) {
     this.appService = AppService;
+    this.searchService = SearchService;
+
+    this.searchResults = [];
+    this.resultCount = null;
+    this.columnDefs = [
+        { name: 'name', label: 'Repository', tooltip: 'repository name' },
+        { name: 'description', label: 'Description', tooltip: 'repository description' },
+        { name: 'url', label: 'URL' },
+        { name: 'fork_count', label: 'Forks', tooltip: 'number of forks' },
+        { name: 'stargazers_count', label: 'Stargazers', tooltip: 'number of stargazers' },
+        { name: 'open_issues_count', label: 'Issues', tooltip: 'number of open issues' },
+    ];
+    this.displayedColumns = ['name', 'forks_count', 'stargazers_count', 'open_issues_count']
 };
 
 AppDemo.prototype = {
@@ -37,6 +50,15 @@ AppDemo.prototype = {
      */
     ngAfterViewChecked: function () {
         this.appService.inProgress = false;
+    },
+
+    ngOnInit: function () {
+        var self = this;
+        // subscribe to the search service to know when new data is available to show
+        this.searchService.searchResults$().subscribe(function(results) {
+            console.log('AppDemo subscribe: ', results);
+            self.searchResults = results.items;
+        });
     }
 };
 
@@ -48,6 +70,7 @@ AppDemo.annotations = [
 
 AppDemo.parameters = [
     AppService,
+    SearchService
 ];
 
 module.exports = AppDemo;

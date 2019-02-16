@@ -1,7 +1,9 @@
 var ngCore = require('@angular/core');
+var SearchService = require('app/services/search.service.js');
 
-function SearchBox() {
+function SearchBox(SearchService) {
     this.text = '';
+    this.searchService = SearchService;
 };
 
 SearchBox.prototype = {
@@ -10,7 +12,8 @@ SearchBox.prototype = {
         console.log('init SearchBox: ' + this.text)
     },
     onButtonClick: function() {
-        console.log('TODO: searching for ' + this.text);
+        console.log('searching for ' + this.text);
+        this.searchService.searchRepositories(this.text);
     },
     onKeyPress: function(event) {
         if (event.key === 'Enter') {
@@ -27,6 +30,8 @@ SearchBox.annotations = [
     })
 ];
 
-SearchBox.parameters = [];
+SearchBox.parameters = [
+    SearchService
+];
 
 module.exports = SearchBox;

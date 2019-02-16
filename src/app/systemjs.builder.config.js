@@ -102,6 +102,7 @@
             'app/app.routes.js': 'app.routes.js',
             'app/app.js': 'app.js',
             'app/services/app.service.js': 'services/app.service.js',
+            'app/services/search.service.js': 'services/search.service.js',
             'app/components/app-demo/app-demo.js': 'components/app-demo/app-demo.js',
             'app/components/app-demo/dialogs/demo/app-demo-dialog.js': 'components/app-demo/dialogs/demo/app-demo-dialog.js',
             'app/components/search-box/search-box.js': 'components/search-box/search-box.js'
