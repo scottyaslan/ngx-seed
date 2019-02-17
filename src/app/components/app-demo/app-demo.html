@@ -22,6 +22,7 @@ limitations under the License.
         </div>
     </div>
 </div>
+
 <div id="app-explorer-grid-list-viewer-agents-container" class="pad-right-xxl pad-left-xxl">
     <div *ngIf="searchInProgress" fxFlex="1 1" fxLayoutAlign="center center">
         <mat-spinner></mat-spinner>
@@ -29,10 +30,10 @@ limitations under the License.
 
     <div *ngIf="!searchInProgress && searchResults.length > 0">
         <mat-table #table [dataSource]="searchResults">
-            <ng-container matColumnDef="name">
+            <ng-container matColumnDef="full_name">
                 <mat-header-cell *matHeaderCellDef> Repository </mat-header-cell>
                 <mat-cell *matCellDef="let repo" class="pad-top-sm pad-bottom-sm">
-                    <div>{{repo.name}}</div>
+                    <div>{{repo.full_name}}</div>
                     <div class="subscript pad-top-xs pad-left-xs pad-right-xs">{{repo.description}}</div>
                 </mat-cell>
             </ng-container>
@@ -54,7 +55,7 @@ limitations under the License.
             <ng-container matColumnDef="open_issues_count">
                 <mat-header-cell *matHeaderCellDef class="text-right"> Issues </mat-header-cell>
                 <mat-cell *matCellDef="let repo" class="pad-top-sm pad-bottom-sm text-right">
-                    <div>{{repo.open_issues_count}}</div>
+                    <button mat-mini-fab (click)="showIssues(repo)">{{repo.open_issues_count}}</button>
                 </mat-cell>
             </ng-container>
 

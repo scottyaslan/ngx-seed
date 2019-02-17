@@ -17,30 +17,45 @@
 
 var ngMaterial = require('@angular/material');
 var ngCore = require('@angular/core');
+var SearchService = require('app/services/search.service.js');
 
 /**
- * NfRegistryEditBucketPolicy constructor.
  *
- * @param nfRegistryApi         The api service.
- * @param nfRegistryService     The nf-registry.service module.
- * @param activatedRoute        The angular route module.
- * @param matDialogRef          The angular material dialog ref.
- * @param data                  The data passed into this component.
+ * @param matDialogRef
+ * @param data
  * @constructor
  */
-function AppDemoDialog(matDialogRef, data) {
-    // Services
+function AppDemoDialog(matDialogRef, data, SearchService) {
     this.dialogRef = matDialogRef;
     this.data = data;
+    this.searchService = SearchService;
+    this.issues = [];
+    this.loading = false;
 };
 
 AppDemoDialog.prototype = {
     constructor: AppDemoDialog,
 
+    ngOnInit: function () {
+        var self = this;
+
+        // set up a subscriber to wait for the search results
+        this.searchService.openIssues$().subscribe(function(results) {
+            self.issues = results.items;
+        });
+
+        this.searchService.isOpenIssuesLoading$().subscribe(function(isLoading) {
+            self.loading = isLoading;
+        });
+
+        // fire off the request to get the issues
+        this.searchService.searchOpenIssues(this.data.repo.full_name);
+    },
+
     /**
-     * Cancel creation of a new policy and close dialog.
+     * Close the dialog
      */
-    cancel: function () {
+    close: function () {
         this.dialogRef.close();
     }
 };
@@ -53,7 +68,8 @@ AppDemoDialog.annotations = [
 
 AppDemoDialog.parameters = [
     ngMaterial.MatDialogRef,
-    ngMaterial.MAT_DIALOG_DATA
+    ngMaterial.MAT_DIALOG_DATA,
+    SearchService
 ];
 
 module.exports = AppDemoDialog;

@@ -19,29 +19,26 @@ var ngCore = require('@angular/core');
 var ngRouter = require('@angular/router');
 var AppService = require('app/services/app.service.js');
 var SearchService = require('app/services/search.service.js');
+var ngMaterial = require('@angular/material');
+var AppDemoDialog = require('./dialogs/demo/app-demo-dialog.js');
+
 /**
- * AppDemo constructor.
- *
- * @param AppService            The app service module.
+ * AppDemo constructor
+ * @param AppService
+ * @param SearchService
+ * @param MatDialog
  * @constructor
  */
-function AppDemo(AppService, SearchService) {
+function AppDemo(AppService, SearchService, MatDialog) {
     this.appService = AppService;
     this.searchService = SearchService;
+    this.dialog = MatDialog;
 
     this.searchResults = [];
     this.searchInProgress = false;
 
     this.resultCount = null;
-    this.columnDefs = [
-        { name: 'name', label: 'Repository', tooltip: 'repository name' },
-        { name: 'description', label: 'Description', tooltip: 'repository description' },
-        { name: 'url', label: 'URL' },
-        { name: 'fork_count', label: 'Forks', tooltip: 'number of forks' },
-        { name: 'stargazers_count', label: 'Stargazers', tooltip: 'number of stargazers' },
-        { name: 'open_issues_count', label: 'Issues', tooltip: 'number of open issues' },
-    ];
-    this.displayedColumns = ['name', 'forks_count', 'stargazers_count', 'open_issues_count'];
+    this.displayedColumns = ['full_name', 'forks_count', 'stargazers_count', 'open_issues_count'];
 
 };
 
@@ -67,6 +64,10 @@ AppDemo.prototype = {
         this.searchService.isLoading$().subscribe(function(loading) {
            self.searchInProgress = loading;
         });
+    },
+
+    showIssues: function(repo) {
+        this.dialog.open(AppDemoDialog, { data: {repo: repo }, width: '500px' });
     }
 };
 
@@ -78,7 +79,8 @@ AppDemo.annotations = [
 
 AppDemo.parameters = [
     AppService,
-    SearchService
+    SearchService,
+    ngMaterial.MatDialog
 ];
 
 module.exports = AppDemo;

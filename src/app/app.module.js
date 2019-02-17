@@ -91,8 +91,8 @@ AppModule.annotations = [
         ],
         declarations: [
             App,
-            AppDemo,
             AppDemoDialog,
+            AppDemo,
             SearchBox
         ],
         entryComponents: [
