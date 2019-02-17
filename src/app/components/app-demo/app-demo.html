@@ -18,8 +18,49 @@ limitations under the License.
 <div class="pad-top-sm pad-bottom-sm pad-right-xxl pad-left-xxl">
     <div layout="row" layout-align="space-between center">
         <div flex fxLayout="row" fxLayoutAlign="end center">
+            <span *ngIf="resultCount !== null">Found {{resultCount}} repositories.</span>
         </div>
     </div>
 </div>
+
 <div id="app-explorer-grid-list-viewer-agents-container" class="pad-right-xxl pad-left-xxl">
+    <div *ngIf="searchInProgress" fxFlex="1 1" fxLayoutAlign="center center">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!searchInProgress && searchResults.length > 0">
+        <mat-table #table [dataSource]="searchResults">
+            <ng-container matColumnDef="full_name">
+                <mat-header-cell *matHeaderCellDef> Repository </mat-header-cell>
+                <mat-cell *matCellDef="let repo" class="pad-top-sm pad-bottom-sm">
+                    <div>{{repo.full_name}}</div>
+                    <div class="subscript pad-top-xs pad-left-xs pad-right-xs">{{repo.description}}</div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="forks_count">
+                <mat-header-cell *matHeaderCellDef class="text-right"> Forks </mat-header-cell>
+                <mat-cell *matCellDef="let repo" class="pad-top-sm pad-bottom-sm text-right">
+                    <div>{{repo.forks_count}}</div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="stargazers_count">
+                <mat-header-cell *matHeaderCellDef class="text-right"> Stargazers </mat-header-cell>
+                <mat-cell *matCellDef="let repo" class="pad-top-sm pad-bottom-sm text-right">
+                    <div>{{repo.stargazers_count}}</div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="open_issues_count">
+                <mat-header-cell *matHeaderCellDef class="text-right"> Issues </mat-header-cell>
+                <mat-cell *matCellDef="let repo" class="pad-top-sm pad-bottom-sm text-right">
+                    <button mat-mini-fab (click)="showIssues(repo)">{{repo.open_issues_count}}</button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
 </div>

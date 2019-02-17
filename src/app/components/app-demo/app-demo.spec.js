@@ -20,6 +20,7 @@ var ngFlex = require('@angular/flex-layout');
 var ngAnimations = require('@angular/platform-browser/animations');
 var ngMaterial = require('@angular/material');
 var ngCommon = require('@angular/common');
+var ngHttp = require('@angular/common/http');
 var ngCoreTesting = require('@angular/core/testing');
 var ngPlatformBrowser = require('@angular/platform-browser');
 var AppRoutes = require('app/app.routes.js');
@@ -28,6 +29,8 @@ var App = require('app/app.js');
 var AppDemo = require('app/components/app-demo/app-demo.js');
 var AppDemoDialog = require('app/components/app-demo/dialogs/demo/app-demo-dialog.js');
 var AppService = require('app/services/app.service.js');
+var SearchService = require('app/services/search.service.js');
+var SearchBox = require('app/components/search-box/search-box.js');
 
 describe('app-demo component spec', function () {
     var comp;
@@ -40,6 +43,7 @@ describe('app-demo component spec', function () {
                 ngFlex.FlexLayoutModule,
                 ngAnimations.BrowserAnimationsModule,
                 ngCommon.CommonModule,
+                ngHttp.HttpClientModule,
                 ngPlatformBrowser.BrowserModule,
                 ngMaterial.MatAutocompleteModule,
                 ngMaterial.MatButtonModule,
@@ -87,7 +91,8 @@ describe('app-demo component spec', function () {
             declarations: [
                 App,
                 AppDemo,
-                AppDemoDialog
+                AppDemoDialog,
+                SearchBox
             ],
             entryComponents: [
                 AppDemoDialog
@@ -97,7 +102,8 @@ describe('app-demo component spec', function () {
                 {
                     provide: ngCommon.APP_BASE_HREF,
                     useValue: '/'
-                }
+                },
+                SearchService
             ],
             bootstrap: [App]
         });

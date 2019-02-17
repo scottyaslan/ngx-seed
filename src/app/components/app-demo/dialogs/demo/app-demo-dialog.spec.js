@@ -22,9 +22,14 @@ var AppDemoDialog = require('app/components/app-demo/dialogs/demo/app-demo-dialo
 var ngCommon = require('@angular/common');
 var ngCoreTesting = require('@angular/core/testing');
 var ngMaterial = require('@angular/material');
+var SearchService = require('app/services/search.service.js');
 
 describe('AppDemoDialog Component isolated unit tests', function () {
     var comp;
+    var fakeService = new SearchService(null);
+    var repo = {
+        full_name: 'test repo'
+    };
 
     beforeEach(function () {
         comp = new AppDemoDialog(
@@ -34,9 +39,12 @@ describe('AppDemoDialog Component isolated unit tests', function () {
                 close: function () {
                 }
             },
-            {
+            { repo: repo },
+            fakeService
+        );
 
-            });
+        spyOn(fakeService, 'searchOpenIssues').and.callFake(function(repo) {});
+
     });
 
     it('should create component', function () {
@@ -49,9 +57,14 @@ describe('AppDemoDialog Component isolated unit tests', function () {
         spyOn(comp.dialogRef, 'close');
 
         // the function to test
-        comp.cancel();
+        comp.close();
 
         //assertions
         expect(comp.dialogRef.close).toHaveBeenCalled();
     });
+
+    it('should call the search service to get the open issues on load', function() {
+        comp.ngOnInit();
+        expect(fakeService.searchOpenIssues).toHaveBeenCalledWith(repo.full_name)
+    })
 });

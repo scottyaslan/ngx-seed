@@ -15,4 +15,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<div></div>
+<div>
+    <h2 mat-dialog-title>Issues - {{data.repo.full_name}}</h2>
+    <mat-dialog-content>
+        <div *ngIf="loading">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <div *ngIf="!loading && issues.length > 0">
+            <mat-list>
+                <mat-list-item *ngFor="let issue of issues">
+                    <h4 mat-line><a href="{{issue.html_url}}">{{issue.title}}</a></h4>
+                    <div mat-line class="subscript">#{{issue.number}} opened by {{issue.user.login}}</div>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button (click)="close()">Ok</button>
+    </mat-dialog-actions>
+</div>

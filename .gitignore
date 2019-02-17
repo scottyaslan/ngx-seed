@@ -6,3 +6,6 @@ npm-debug.log*
 *.iml
 *.iws
 *~
+
+# mac
+.DS_Store

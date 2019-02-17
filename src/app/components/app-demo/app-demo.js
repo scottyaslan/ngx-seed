@@ -18,15 +18,28 @@
 var ngCore = require('@angular/core');
 var ngRouter = require('@angular/router');
 var AppService = require('app/services/app.service.js');
+var SearchService = require('app/services/search.service.js');
+var ngMaterial = require('@angular/material');
+var AppDemoDialog = require('./dialogs/demo/app-demo-dialog.js');
 
 /**
- * AppDemo constructor.
- *
- * @param AppService            The app service module.
+ * AppDemo constructor
+ * @param AppService
+ * @param SearchService
+ * @param MatDialog
  * @constructor
  */
-function AppDemo(AppService) {
+function AppDemo(AppService, SearchService, MatDialog) {
     this.appService = AppService;
+    this.searchService = SearchService;
+    this.dialog = MatDialog;
+
+    this.searchResults = [];
+    this.searchInProgress = false;
+
+    this.resultCount = null;
+    this.displayedColumns = ['full_name', 'forks_count', 'stargazers_count', 'open_issues_count'];
+
 };
 
 AppDemo.prototype = {
@@ -37,6 +50,24 @@ AppDemo.prototype = {
      */
     ngAfterViewChecked: function () {
         this.appService.inProgress = false;
+    },
+
+    ngOnInit: function () {
+        var self = this;
+        // subscribe to the search service to know when new data is available to show
+        this.searchService.searchResults$().subscribe(function(results) {
+            console.log('AppDemo subscribe: ', results);
+            self.searchResults = results.items;
+        });
+
+        // subscribe to the loading observable to know when the search is in progress
+        this.searchService.isLoading$().subscribe(function(loading) {
+           self.searchInProgress = loading;
+        });
+    },
+
+    showIssues: function(repo) {
+        this.dialog.open(AppDemoDialog, { data: {repo: repo }, width: '500px' });
     }
 };
 
@@ -48,6 +79,8 @@ AppDemo.annotations = [
 
 AppDemo.parameters = [
     AppService,
+    SearchService,
+    ngMaterial.MatDialog
 ];
 
 module.exports = AppDemo;
