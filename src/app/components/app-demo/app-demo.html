@@ -23,50 +23,11 @@ limitations under the License.
     </div>
 </div>
 <div id="app-explorer-grid-list-viewer-agents-container" class="pad-right-xxl pad-left-xxl">
-    <!--<td-data-table [data]="searchResults" [columns]="columnDefs">-->
-        <!--<template tdDataTableTemplate="name" let-value="value">-->
-            <!--<div layout="row">-->
-                <!--<span flex>{{value}}</span>-->
-            <!--</div>-->
-        <!--</template>-->
-        <!--<template tdDataTableTemplate="description" let-value="value">-->
-            <!--<div layout="row">-->
-                <!--<span flex>{{value}}</span>-->
-            <!--</div>-->
-        <!--</template>-->
-        <!--<template tdDataTableTemplate="url" let-value="value">-->
-            <!--<div layout="row">-->
-                <!--<span flex>{{value}}</span>-->
-            <!--</div>-->
-        <!--</template>-->
-        <!--<template tdDataTableTemplate="fork_count" let-value="value">-->
-            <!--<div layout="row">-->
-                <!--<span flex>{{value}}</span>-->
-            <!--</div>-->
-        <!--</template>-->
-        <!--<template tdDataTableTemplate="stargazers_count" let-value="value">-->
-            <!--<div layout="row">-->
-                <!--<span flex>{{value}}</span>-->
-            <!--</div>-->
-        <!--</template>-->
-        <!--<template tdDataTableTemplate="open_issues_count" let-value="value">-->
-            <!--<div layout="row">-->
-                <!--<span flex>{{value}}</span>-->
-            <!--</div>-->
-        <!--</template>-->
-    <!--</td-data-table>-->
-    <!--<mat-list>-->
-        <!--<mat-list-item *ngFor="let repo of searchResults">-->
-            <!--<div fxLayout="column">-->
-                <!--<div><a href="repo.url">{{repo.name}}</a></div>-->
-                <!--<div>{{repo.description}}</div>-->
-                <!--<div>{{repo.fork_count}} Forks</div>-->
-                <!--<div>{{repo.stargazers_count}} Stargazers</div>-->
-                <!--<div>{{repo.open_issues_count}} Issues</div>-->
-            <!--</div>-->
-        <!--</mat-list-item>-->
-    <!--</mat-list>-->
-    <div>
+    <div *ngIf="searchInProgress" fxFlex="1 1" fxLayoutAlign="center center">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!searchInProgress && searchResults.length > 0">
         <mat-table #table [dataSource]="searchResults">
             <ng-container matColumnDef="name">
                 <mat-header-cell *matHeaderCellDef> Repository </mat-header-cell>

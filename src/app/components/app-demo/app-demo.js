@@ -30,6 +30,8 @@ function AppDemo(AppService, SearchService) {
     this.searchService = SearchService;
 
     this.searchResults = [];
+    this.searchInProgress = false;
+
     this.resultCount = null;
     this.columnDefs = [
         { name: 'name', label: 'Repository', tooltip: 'repository name' },
@@ -39,7 +41,8 @@ function AppDemo(AppService, SearchService) {
         { name: 'stargazers_count', label: 'Stargazers', tooltip: 'number of stargazers' },
         { name: 'open_issues_count', label: 'Issues', tooltip: 'number of open issues' },
     ];
-    this.displayedColumns = ['name', 'forks_count', 'stargazers_count', 'open_issues_count']
+    this.displayedColumns = ['name', 'forks_count', 'stargazers_count', 'open_issues_count'];
+
 };
 
 AppDemo.prototype = {
@@ -58,6 +61,11 @@ AppDemo.prototype = {
         this.searchService.searchResults$().subscribe(function(results) {
             console.log('AppDemo subscribe: ', results);
             self.searchResults = results.items;
+        });
+
+        // subscribe to the loading observable to know when the search is in progress
+        this.searchService.isLoading$().subscribe(function(loading) {
+           self.searchInProgress = loading;
         });
     }
 };
