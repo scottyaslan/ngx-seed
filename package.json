@@ -19,10 +19,6 @@
     "start": "./node_modules/.bin/grunt",
     "build:app": "./node_modules/grunt-cli/bin/grunt compile-web-ui-styles",
     "bundle:app": "./node_modules/grunt-cli/bin/grunt bundle-web-ui",
-    "clean:install": "bash ./scripts/clean-install",
-    "clean:install:skipTests": "bash ./scripts/clean-install-skipTests",
-    "dev:install": "bash ./scripts/dev-install",
-    "dev:install:skipTests": "bash ./scripts/dev-install-skipTests",
     "test": "karma start karma.conf.js --single-run",
     "test:dev": "karma start karma.conf.js"
   },
