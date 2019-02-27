@@ -22,20 +22,18 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
-    <link rel="stylesheet" href="node_modules/@covalent/core/common/platform.css">
-    <link rel="stylesheet" href='app/css/app-demo.min.css'/>
-    <link rel='stylesheet' href='node_modules/font-awesome/css/font-awesome.css'/>
+    <link rel="stylesheet" href='src/dist/app-demo.min.css' type="text/css" />
 </head>
 <body>
 <app></app>
 </body>
-<!-- For developing with minified sources... -->
-<script src="app/app.bundle.min.js"></script>
+<!-- For production with minified sources... -->
+<!-- <script src="dist/app.bundle.min.js"></script> -->
 
-<!-- For developing with unminified sources...be sure to comment out line #33 and uncomment lines 36-40 -->
-<!-- <script src="node_modules/systemjs/dist/system.src.js"></script>
-<script src="app/systemjs.spec.config.js?"></script>
+<!-- For developing with unminified sources... -->
+<script src="node_modules/systemjs/dist/system.src.js"></script>
+<script src="systemjs.config.js"></script>
 <script>
-  System.import('app/app-bootstrap.js').catch(function(err) {console.error(err);});
-</script> -->
+  System.import('src/app/app-bootstrap.js').catch(function(err) {console.error(err);});
+</script>
 </html>
