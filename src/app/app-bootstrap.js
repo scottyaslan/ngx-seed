@@ -26,28 +26,5 @@ var ngCore = require('@angular/core');
 // Comment out this line when developing to assert for unidirectional data flow
 ngCore.enableProdMode();
 
-// Get the locale id from the global
-var locale = navigator.language;
-
-var providers = [];
-
-// No locale or U.S. English: no translation providers so go ahead and bootstrap the app
-if (!locale || locale === 'en-US') {
-    ngPlatformBrowserDynamic.platformBrowserDynamic().bootstrapModule(AppModule, {providers: providers});
-} else { //load the translation providers and bootstrap the module
-    var translationFile = './locale/messages.' + locale + '.xlf';
-
-    $.ajax({
-        url: translationFile
-    }).done(function (translations) {
-        // add providers if translation file for locale is loaded
-        if (translations) {
-            providers.push({provide: ngCore.TRANSLATIONS, useValue: translations.documentElement.innerHTML});
-            providers.push({provide: ngCore.TRANSLATIONS_FORMAT, useValue: 'xlf'});
-            providers.push({provide: ngCore.LOCALE_ID, useValue: locale});
-        }
-        ngPlatformBrowserDynamic.platformBrowserDynamic().bootstrapModule(AppModule, {providers: providers});
-    }).fail(function () {
-        ngPlatformBrowserDynamic.platformBrowserDynamic().bootstrapModule(AppModule, {providers: providers});
-    });
-}
+// Bootstrap the app
+ngPlatformBrowserDynamic.platformBrowserDynamic().bootstrapModule(AppModule);
