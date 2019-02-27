@@ -17,7 +17,7 @@
 
 module.exports = function (config) {
 
-    var appBase = 'app/';       // app JS and map files
+    var appBase = 'src/app/';       // app JS and map files
 
     config.set({
         basePath: './',
@@ -39,11 +39,6 @@ module.exports = function (config) {
             require('karma-spec-reporter'),
             require('karma-coverage')
         ],
-
-        client: {
-            builtPaths: [appBase], // add more spec base paths as needed
-            clearContext: false // leave Jasmine Spec Runner output visible in browser
-        },
 
         files: [
             // System.js for module loading
@@ -79,39 +74,30 @@ module.exports = function (config) {
             {pattern: 'node_modules/jquery/**/*.js', included: false, watched: false},
             {pattern: 'node_modules/systemjs-plugin-text/text.js', included: false, watched: false},
 
-            {pattern: appBase + 'systemjs.spec.config.js', included: false, watched: false},
+            {pattern: 'systemjs.config.js', included: false, watched: false},
             'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
 
             // Include the styles
-            {
-                pattern: 'app/css/*.css',
-                included: true,
-                watched: true
-            },
+            {pattern: 'src/app/**/*.css', included: true, watched: true},
 
             // Include the templates
-            {
-                pattern: 'app/**/*.html',
-                included: true,
-                watched: true,
-                served: true
-            },
+            {pattern: 'src/app/**/*.html', included: true, watched: true, served: true},
 
             // Include the images
-            {pattern: '**/*.svg', watched: false, included: true, served: true},
+            {pattern: 'src/app/**/*.svg', watched: false, included: true, served: true},
 
             // Paths for debugging with source maps in dev tools
-            {pattern: appBase + '**/*.js.map', included: false, watched: false},
-            {pattern: appBase + '**/*.css.map', included: false, watched: false},
+            {pattern: 'src/app/**/*.js.map', included: false, watched: false},
+            {pattern: 'src/app/**/*.css.map', included: false, watched: false},
 
-            // include js files and test specs
-            {pattern: appBase + '**/*.js', included: false, watched: false}
+            // Include js and test specs
+            {pattern: 'src/app/**/*.js', included: false, watched: false},
         ],
 
         // Proxied base paths for loading assets
         proxies: {
             // required for modules fetched by SystemJS
-            '/base/systemjs-angular-loader.js': '/base/app/systemjs-angular-loader.js'
+            '/base/systemjs-angular-loader.js': 'systemjs-angular-loader.js'
         },
 
         exclude: [],
