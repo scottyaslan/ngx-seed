@@ -19,9 +19,10 @@
  * In this file you should centralize your imports. After compilation simply import this file using the following HTML or equivalent:
  * <link href='app/css/app-demo.min.css' media='screen, projection' rel='stylesheet' type='text/css' /> */
 
-@import '../../node_modules/@angular/material/theming';
-@import '../../node_modules/@covalent/core/theming/all-theme';
-// Plus imports for other components in your app.
+@import '../../../node_modules/font-awesome/scss/font-awesome.scss';
+@import '../../../node_modules/@angular/material/theming';
+@import '../../../node_modules/@covalent/core/theming/all-theme';
+@import '../../../node_modules/@covalent/core/common/platform.scss';
 
 // Custom typography
 $custom-typography: mat-typography-config(
@@ -55,3 +56,5 @@ $theme: mat-light-theme($primary, $accent, $warn);
 // that you are using.
 @include angular-material-theme($theme);
 @include covalent-theme($theme);
+
+// Plus imports for other components in your app.
