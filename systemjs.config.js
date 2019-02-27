@@ -17,10 +17,11 @@
 
 (function (global) {
     System.config({
+        // paths serve as alias
         paths: {
-            // paths serve as alias
             'npm:': 'node_modules/'
         },
+
         // map tells the System loader where to look for things
         map: {
             'text': 'npm:systemjs-plugin-text/text.js',
@@ -97,20 +98,21 @@
             'tslib': 'npm:tslib/tslib.js',
 
             // App
-            'app/app.module.js': 'app/app.module.js',
-            'app/app.routes.js': 'app/app.routes.js',
-            'app/app.js': 'app/app.js',
-            'app/services/app.service.js': 'app/services/app.service.js',
-            'app/components/app-demo/app-demo.js': 'app/components/app-demo/app-demo.js',
-            'app/components/app-demo/dialogs/demo/app-demo-dialog.js': 'app/components/app-demo/dialogs/demo/app-demo-dialog.js'
+            'app/app.module.js': 'src/app/app.module.js',
+            'app/app.routes.js': 'src/app/app.routes.js',
+            'app/app.js': 'src/app/app.js',
+            'app/services/app.service.js': 'src/app/services/app.service.js',
+            'app/components/app-demo/app-demo.js': 'src/app/components/app-demo/app-demo.js',
+            'app/components/app-demo/dialogs/demo/app-demo-dialog.js': 'src/app/components/app-demo/dialogs/demo/app-demo-dialog.js'
         },
+
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
             'app/': {
                 defaultExtension: 'js',
                 meta: {
                     './*.js': {
-                        loader: 'app/systemjs-angular-loader.js'
+                        loader: 'systemjs-angular-loader.js'
                     }
                 }
             },
@@ -122,6 +124,9 @@
             },
             'querystring': {
                 main: './index.js',
+                defaultExtension: 'js'
+            },
+            'd3' : {
                 defaultExtension: 'js'
             }
         }
